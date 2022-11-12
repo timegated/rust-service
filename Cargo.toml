@@ -7,7 +7,7 @@ edition = "2021"
 
 [dependencies]
 actix-web = "^4"
-uuid = { version = "^1.2.1", features = "v4" }
+uuid = { version = "^1.2.1", features = ["v4"] }
 serde = { version = "^1", features = ["derive"] }
 aws-config = "^0.51.0"
 aws-sdk-dynamodb = "^0.21.0"
