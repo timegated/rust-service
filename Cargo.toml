@@ -1,5 +1,5 @@
 [package]
-name = "ActixWebTaskService"
+name = "actix_web_task_service"
 version = "0.1.0"
 edition = "2021"
 

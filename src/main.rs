@@ -1,8 +1,14 @@
 mod api;
 mod repository;
+pub mod model;
 
-use api::task:: {
-  get_task
+use api::task::{
+  get_task,
+  submit_task,
+  start_task,
+  complete_task,
+  pause_task,
+  fail_task,
 };
 
 use actix_web::{HttpServer, App, web::Data, middleware::Logger};
@@ -13,7 +19,7 @@ async fn main() -> std::io::Result<()> {
   std::env::set_var("RUST_LOG", "debug");
   std::env::set_var("RUST_BACKTRACE", "1");
   env_logger::init();
-  let config = aws_config::load_from_env().await;
+  let config = aws_config::from_env().region("us-east-1").load().await;
   // HTTP Server Struct
   HttpServer::new(move || {
     let logger = Logger::default();
